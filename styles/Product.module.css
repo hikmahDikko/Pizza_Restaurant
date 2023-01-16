@@ -1,5 +1,5 @@
 .container{
-    height: calc(100vh - 100px);
+    height: calc(85vh - 70px);
     display: flex;
 }
 
@@ -79,4 +79,17 @@
 .checkbox{
     width: 20px;
     height: 20px;
+}
+
+.quantity{
+    width: 50px;
+    height: 30px;
+}
+.button{
+    height: 30px;
+    margin-left: 10px;
+    background-color: #d1411e;
+    color: white;
+    border: 500;
+    cursor: pointer;
 }
