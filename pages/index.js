@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import axios from 'axios'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Featured from '@/component/Featured'
 import PizzaList from '@/component/PizzaList'
 
-export default function Home() {
+export default function Home({pizzaList}) {
   return (
     <>
       <Head>
@@ -15,7 +16,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured/>
-      <PizzaList/>
+      <PizzaList pizzaList={pizzaList} />
     </>
   )
+}
+
+export const getServerSideProps = async () => {
+  const res = await axios.get("http://localhost:3000/api/products");
+  return{
+    props:{
+      pizzaList : res.data
+    }
+  }
 }
